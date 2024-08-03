@@ -1,4 +1,4 @@
-package techchallage.dto;
+package techchallange.dto;
 
 public record EmpresaDTO() {
 }

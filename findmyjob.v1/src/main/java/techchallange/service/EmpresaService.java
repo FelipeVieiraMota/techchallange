@@ -1,4 +1,4 @@
-package techchallage.service;
+package techchallange.service;
 
 public class EmpresaService {
 }

@@ -1,4 +1,4 @@
-package techchallage.repository;
+package techchallange.repository;
 
 public interface EmpresaRepository {
 }

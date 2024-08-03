@@ -1,4 +1,4 @@
-package techchallage.controller;
+package techchallange.controller;
 
 public class EmpresaController {
 }
