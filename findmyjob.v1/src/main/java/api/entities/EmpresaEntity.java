@@ -39,6 +39,6 @@ public class EmpresaEntity {
     private String email;
 
 
-    @OneToMany(mappedBy = "idVaga", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "idVaga")
     private List<VagasEntity> vagas;
 }

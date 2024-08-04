@@ -1,4 +1,7 @@
 
+-- Postgres database
+
+-- 1) Executar essas queries antes de subir a API
 CREATE TABLE empresas (
     id_empresa SERIAL PRIMARY key,
     razao_social VARCHAR(255) NOT NULL,
@@ -40,7 +43,15 @@ CREATE TABLE candidaturas (
     FOREIGN KEY (vaga_id) REFERENCES vagas(id_vaga)
 );
 
+commit;
+---------------------------------
 
+
+
+
+
+
+-- Limpar a base de dados
 drop table  empresas;
 drop table  candidatos;
 drop table  vagas;
