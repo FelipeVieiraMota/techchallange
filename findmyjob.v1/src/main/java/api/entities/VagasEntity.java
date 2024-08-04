@@ -46,5 +46,5 @@ public class VagasEntity {
 
     @ManyToOne
     @JoinColumn(name = "empresa_id")
-    private Empresa empresa;
+    private EmpresaEntity empresa;
 }
