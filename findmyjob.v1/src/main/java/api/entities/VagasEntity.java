@@ -7,6 +7,7 @@ import lombok.Setter;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
+import java.util.Date;
 
 
 @Entity
@@ -33,4 +34,18 @@ public class VagasEntity {
     @NotBlank
     @NotNull
     private BigDecimal salario;
+
+    @NotBlank
+    @NotNull
+    @Column(name = "data_publicacao")
+    private Date dataPublicacao;
+
+    @NotBlank
+    @NotNull
+    @Column(name = "data_expiracao")
+    private Date dataExpiracao;
+
+    @ManyToOne
+    @JoinColumn(name = "empresa_id")
+    private Empresa empresa;
 }
