@@ -1,9 +1,11 @@
 package api.controller;
 
+import api.dto.VagasDto;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.ResponseEntity;
+import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import api.service.VagasService;
 
@@ -11,11 +13,14 @@ import api.service.VagasService;
 @RequestMapping("/v1/api/vagas")
 @RequiredArgsConstructor
 public class VagasController {
+
     private final VagasService vagasService;
 
-    // Get all products
     @GetMapping
-    public ResponseEntity<String> getAllProducts() {
-        return ResponseEntity.ok("Hello World!");
+    public Page<VagasDto> obterVagasPorPaginacao(
+            @RequestParam(defaultValue = "0") int page,
+            @RequestParam(defaultValue = "10") int size){
+
+        return vagasService.obterVagasPorPaginacao(page, size);
     }
 }
