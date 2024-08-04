@@ -1,4 +1,4 @@
-package techchallange.dto;
+package api.dto;
 
 public record EmpresaDTO() {
 }
