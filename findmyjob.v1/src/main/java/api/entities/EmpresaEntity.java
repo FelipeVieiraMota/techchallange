@@ -15,6 +15,7 @@ public class EmpresaEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_empresa")
     private long idEmpresa;
 
     @NotBlank
