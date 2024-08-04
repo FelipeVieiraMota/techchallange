@@ -23,7 +23,7 @@ public class VagasEntity {
         BigDecimal salario,
         Date dataPublicacao,
         Date dataExpiracao,
-        Empresa empresa
+        EmpresaEntity empresa
     ){
         this.titulo = titulo;
         this.descricao = descricao;
@@ -64,5 +64,5 @@ public class VagasEntity {
 
     @ManyToOne
     @JoinColumn(name = "empresa_id")
-    private Empresa empresa;
+    private EmpresaEntity empresa;
 }
