@@ -1,6 +1,7 @@
 package api.entities;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -13,7 +14,24 @@ import java.util.Date;
 @Getter
 @Setter
 @Table(name = "vagas")
+@AllArgsConstructor
 public class VagasEntity {
+
+    public VagasEntity(
+        String titulo,
+        String descricao,
+        BigDecimal salario,
+        Date dataPublicacao,
+        Date dataExpiracao,
+        EmpresaEntity empresa
+    ){
+        this.titulo = titulo;
+        this.descricao = descricao;
+        this.salario = salario;
+        this.dataPublicacao = dataPublicacao;
+        this.dataExpiracao = dataExpiracao;
+        this.empresa = empresa;
+    }
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
