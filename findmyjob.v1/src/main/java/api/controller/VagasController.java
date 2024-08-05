@@ -1,13 +1,14 @@
 package api.controller;
 
 import api.dto.VagaDto;
+import jakarta.validation.constraints.NotNull;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import api.service.VagasService;
 
-import javax.validation.constraints.NotNull;
+
 import java.net.URI;
 import java.net.URISyntaxException;
 
