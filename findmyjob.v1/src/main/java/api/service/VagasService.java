@@ -3,7 +3,7 @@ package api.service;
 import api.dto.VagaDto;
 import api.mappers.VagasMapper;
 import api.repository.VagasRepository;
-import api.service.exceptions.HttpNotFoundException;
+import api.exceptions.HttpNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;

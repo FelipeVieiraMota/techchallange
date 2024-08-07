@@ -1,4 +1,7 @@
 package api.repository;
 
-public interface EmpresaRepository {
+import api.entities.EmpresaEntity;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface EmpresaRepository extends JpaRepository<EmpresaEntity, Long> {
 }
