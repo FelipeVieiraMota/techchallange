@@ -1,9 +1,7 @@
 package api.controller;
 
-import api.dto.EmpresaDTO;
 import api.dto.VagaDto;
 import jakarta.validation.Valid;
-import jakarta.validation.constraints.NotNull;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;

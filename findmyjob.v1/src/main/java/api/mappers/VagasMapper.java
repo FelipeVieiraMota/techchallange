@@ -5,7 +5,7 @@ import api.entities.VagasEntity;
 import org.springframework.stereotype.Component;
 
 @Component
-public class VagasMapper {
+public class VagasMapper extends GenericMapper {
 
     public VagaDto toDto(VagasEntity vagasEntity) {
         return new VagaDto(
@@ -29,16 +29,5 @@ public class VagasMapper {
                 vagaDto.dataExpiracao(),
                 vagaDto.empresa()
         );
-    }
-
-    public VagasEntity map(VagasEntity sourceEntity, VagasEntity entityToReceiveDataFromSource){
-        entityToReceiveDataFromSource.setIdVaga(sourceEntity.getIdVaga());
-        entityToReceiveDataFromSource.setTitulo(sourceEntity.getTitulo());
-        entityToReceiveDataFromSource.setDescricao(sourceEntity.getDescricao());
-        entityToReceiveDataFromSource.setSalario(sourceEntity.getSalario());
-        entityToReceiveDataFromSource.setDataPublicacao(sourceEntity.getDataPublicacao());
-        entityToReceiveDataFromSource.setDataExpiracao(sourceEntity.getDataExpiracao());
-        entityToReceiveDataFromSource.setEmpresa(sourceEntity.getEmpresa());
-        return entityToReceiveDataFromSource;
     }
 }

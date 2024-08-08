@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 
@@ -15,6 +16,7 @@ import java.util.Date;
 @Setter
 @Table(name = "vagas")
 @AllArgsConstructor
+@NoArgsConstructor
 public class VagasEntity {
 
     public VagasEntity(

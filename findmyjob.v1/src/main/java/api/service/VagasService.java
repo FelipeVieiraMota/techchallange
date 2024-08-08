@@ -1,7 +1,7 @@
 package api.service;
 
-import api.dto.EmpresaDTO;
 import api.dto.VagaDto;
+import api.entities.VagasEntity;
 import api.mappers.VagasMapper;
 import api.repository.VagasRepository;
 import api.exceptions.HttpNotFoundException;
@@ -39,7 +39,9 @@ public class VagasService {
         var dataToUpdate = vagasRepository.findById(id)
                 .orElseThrow(()-> new HttpNotFoundException("User " + id + " not found."));
 
-        dataToUpdate = mapper.map(mapper.toEntity(requestBody), dataToUpdate);
+        //dataToUpdate = mapper.map(mapper.toEntity(requestBody), dataToUpdate);
+
+        dataToUpdate = mapper.map(mapper.toEntity(requestBody), dataToUpdate, VagasEntity.class);
 
         return save(mapper.toDto(dataToUpdate));
     }
