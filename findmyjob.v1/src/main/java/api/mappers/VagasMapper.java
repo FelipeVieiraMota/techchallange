@@ -30,4 +30,15 @@ public class VagasMapper {
                 vagaDto.empresa()
         );
     }
+
+    public VagasEntity map(VagasEntity sourceEntity, VagasEntity entityToReceiveDataFromSource){
+        entityToReceiveDataFromSource.setIdVaga(sourceEntity.getIdVaga());
+        entityToReceiveDataFromSource.setTitulo(sourceEntity.getTitulo());
+        entityToReceiveDataFromSource.setDescricao(sourceEntity.getDescricao());
+        entityToReceiveDataFromSource.setSalario(sourceEntity.getSalario());
+        entityToReceiveDataFromSource.setDataPublicacao(sourceEntity.getDataPublicacao());
+        entityToReceiveDataFromSource.setDataExpiracao(sourceEntity.getDataExpiracao());
+        entityToReceiveDataFromSource.setEmpresa(sourceEntity.getEmpresa());
+        return entityToReceiveDataFromSource;
+    }
 }
