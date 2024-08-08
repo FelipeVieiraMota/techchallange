@@ -19,22 +19,6 @@ import java.util.Date;
 @NoArgsConstructor
 public class VagasEntity {
 
-    public VagasEntity(
-        String titulo,
-        String descricao,
-        BigDecimal salario,
-        Date dataPublicacao,
-        Date dataExpiracao,
-        EmpresaEntity empresa
-    ){
-        this.titulo = titulo;
-        this.descricao = descricao;
-        this.salario = salario;
-        this.dataPublicacao = dataPublicacao;
-        this.dataExpiracao = dataExpiracao;
-        this.empresa = empresa;
-    }
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long idVaga;
@@ -50,16 +34,13 @@ public class VagasEntity {
     private String descricao;
 
     @Column(precision = 10, scale = 2)
-    @NotBlank
     @NotNull
     private BigDecimal salario;
 
-    @NotBlank
     @NotNull
     @Column(name = "data_publicacao")
     private Date dataPublicacao;
 
-    @NotBlank
     @NotNull
     @Column(name = "data_expiracao")
     private Date dataExpiracao;

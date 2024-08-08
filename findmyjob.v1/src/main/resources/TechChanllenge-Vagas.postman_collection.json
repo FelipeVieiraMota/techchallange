@@ -1,0 +1,146 @@
+{
+	"info": {
+		"_postman_id": "11b7de7c-e09f-4103-aa10-7bf18986cf0a",
+		"name": "TechChanllenge-Vagas",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "3488577"
+	},
+	"item": [
+		{
+			"name": "Save Vaga",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"titulo\": \"Desenvolvedor Senior BackEnd\",\n  \"descricao\": \"Precisamos de vc, sera...\",\n  \"salario\": 10000,\n  \"dataPublicacao\": \"2024-08-08T18:52:42.739Z\",\n  \"dataExpiracao\": \"2024-12-08T18:52:42.739Z\",\n  \"empresa\": {\n    \"idEmpresa\": 1\n  }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/v1/api/vagas",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"api",
+						"vagas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Vagas",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/v1/api/vagas?page=0&size=10",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"api",
+						"vagas"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "0"
+						},
+						{
+							"key": "size",
+							"value": "10"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Vaga By Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/v1/api/vagas/4",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"api",
+						"vagas",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Vaga data by id",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"id\": 4,\n  \"titulo\": \"string\",\n  \"descricao\": \"string\",\n  \"salario\": 45000,\n  \"dataPublicacao\": \"2024-08-08T19:05:34.361Z\",\n  \"dataExpiracao\": \"2024-08-08T19:05:34.361Z\",\n  \"empresa\": {\n    \"idEmpresa\": 1\n  }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/v1/api/vagas/4",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"api",
+						"vagas",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/v1/api/vagas/4",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"api",
+						"vagas",
+						"4"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

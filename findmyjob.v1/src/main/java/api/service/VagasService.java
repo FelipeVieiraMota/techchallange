@@ -30,16 +30,14 @@ public class VagasService {
     public VagaDto getById(long id) {
         return mapper.toDto(
             vagasRepository.findById(id)
-                .orElseThrow(()-> new HttpNotFoundException("User " + id + " not found."))
+                .orElseThrow(()-> new HttpNotFoundException("Vaga " + id + " not found."))
         );
     }
 
     public VagaDto update(long id, VagaDto requestBody) {
 
         var dataToUpdate = vagasRepository.findById(id)
-                .orElseThrow(()-> new HttpNotFoundException("User " + id + " not found."));
-
-        //dataToUpdate = mapper.map(mapper.toEntity(requestBody), dataToUpdate);
+                .orElseThrow(()-> new HttpNotFoundException("Vaga " + id + " not found."));
 
         dataToUpdate = mapper.map(mapper.toEntity(requestBody), dataToUpdate, VagasEntity.class);
 
