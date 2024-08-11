@@ -1,12 +1,13 @@
 package api.entities;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
+
 import java.math.BigDecimal;
 import java.util.Date;
 
@@ -15,23 +16,8 @@ import java.util.Date;
 @Setter
 @Table(name = "vagas")
 @AllArgsConstructor
+@NoArgsConstructor
 public class VagasEntity {
-
-    public VagasEntity(
-        String titulo,
-        String descricao,
-        BigDecimal salario,
-        Date dataPublicacao,
-        Date dataExpiracao,
-        EmpresaEntity empresa
-    ){
-        this.titulo = titulo;
-        this.descricao = descricao;
-        this.salario = salario;
-        this.dataPublicacao = dataPublicacao;
-        this.dataExpiracao = dataExpiracao;
-        this.empresa = empresa;
-    }
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -48,16 +34,13 @@ public class VagasEntity {
     private String descricao;
 
     @Column(precision = 10, scale = 2)
-    @NotBlank
     @NotNull
     private BigDecimal salario;
 
-    @NotBlank
     @NotNull
     @Column(name = "data_publicacao")
     private Date dataPublicacao;
 
-    @NotBlank
     @NotNull
     @Column(name = "data_expiracao")
     private Date dataExpiracao;

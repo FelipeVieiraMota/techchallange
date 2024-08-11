@@ -5,7 +5,7 @@ import api.entities.VagasEntity;
 import org.springframework.stereotype.Component;
 
 @Component
-public class VagasMapper {
+public class VagasMapper extends GenericMapper {
 
     public VagaDto toDto(VagasEntity vagasEntity) {
         return new VagaDto(
