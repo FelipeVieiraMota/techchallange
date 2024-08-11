@@ -24,7 +24,7 @@ public class CandidatosController {
     }
 
     @Operation(description = "Cadastra um novo candidato.")
-    @PostMapping("/{id}")
+    @PostMapping()
     public ResponseEntity<CandidatoDTO> salvarPerfilCandidato(@Valid @RequestBody CandidatoDTO candidato){
         return ResponseEntity.status(HttpStatusCode.valueOf(HttpStatus.CREATED.value())).body(candidatosService.salvarPerfilCandidato(candidato));
     }

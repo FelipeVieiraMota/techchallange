@@ -2,9 +2,9 @@ package api.service;
 
 import api.dto.CandidatoDTO;
 import api.entities.CandidatosEntity;
+import api.exceptions.HttpNotFoundException;
 import api.mappers.CandidatosMapper;
 import api.repository.CandidatoRepository;
-import api.service.exceptions.HttpNotFoundException;
 import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -20,7 +20,7 @@ public class CandidatosService {
     public CandidatoDTO obterPerfilCandidato(long id) {
         return mapper.toDto(
                 repository.findById(id)
-                        .orElseThrow(() -> new HttpNotFoundException("Usuário" + id + " não encontrado."))
+                        .orElseThrow(() -> new HttpNotFoundException("Usuário " + id + " não encontrado."))
         );
 
     }
