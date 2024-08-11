@@ -26,7 +26,7 @@ public class EmpresaService {
     }
 
     public EmpresaDTO findById(long id) {
-        return mapper.toDto(empresaRepository.findById(id).orElseThrow(() -> new HttpNotFoundException("User " + id + " not found.")));
+        return mapper.toDto(empresaRepository.findById(id).orElseThrow(() -> new HttpNotFoundException("Empresa " + id + " não encontrada.")));
     }
 
     public EmpresaDTO save(EmpresaDTO empresa) {

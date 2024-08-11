@@ -1,6 +1,6 @@
 package api.service;
 
-import api.dto.VagaDto;
+import api.dto.VagaDTO;
 import api.entities.VagasEntity;
 import api.mappers.VagasMapper;
 import api.repository.VagasRepository;
@@ -17,24 +17,24 @@ public class VagasService {
     private final VagasRepository vagasRepository;
     private final VagasMapper mapper;
 
-    public Page<VagaDto> getAllByPagination(int page, int size) {
+    public Page<VagaDTO> getAllByPagination(int page, int size) {
         return vagasRepository
             .findAll(PageRequest.of(page, size))
                 .map(mapper::toDto);
     }
 
-    public VagaDto save(VagaDto requestBody) {
+    public VagaDTO save(VagaDTO requestBody) {
         return mapper.toDto(vagasRepository.save(mapper.toEntity(requestBody)));
     }
 
-    public VagaDto getById(long id) {
+    public VagaDTO getById(long id) {
         return mapper.toDto(
             vagasRepository.findById(id)
                 .orElseThrow(()-> new HttpNotFoundException("Vaga " + id + " not found."))
         );
     }
 
-    public VagaDto update(long id, VagaDto requestBody) {
+    public VagaDTO update(long id, VagaDTO requestBody) {
 
         var dataToUpdate = vagasRepository.findById(id)
                 .orElseThrow(()-> new HttpNotFoundException("Vaga " + id + " not found."));

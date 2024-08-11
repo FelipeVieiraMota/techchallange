@@ -1,6 +1,6 @@
 package api.controller;
 
-import api.dto.VagaDto;
+import api.dto.VagaDTO;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
@@ -20,7 +20,7 @@ public class VagasController {
     private final VagasService vagasService;
 
     @GetMapping
-    public ResponseEntity<Page<VagaDto>> getAllByPagination(
+    public ResponseEntity<Page<VagaDTO>> getAllByPagination(
             @RequestParam(defaultValue = "0") int page,
             @RequestParam(defaultValue = "10") int size){
 
@@ -28,19 +28,19 @@ public class VagasController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<VagaDto> getById(@PathVariable long id){
+    public ResponseEntity<VagaDTO> getById(@PathVariable long id){
         return ResponseEntity.ok(vagasService.getById(id));
     }
 
     @PostMapping
-    public ResponseEntity<VagaDto> create(@Valid @RequestBody VagaDto requestBody) throws URISyntaxException {
+    public ResponseEntity<VagaDTO> create(@Valid @RequestBody VagaDTO requestBody) throws URISyntaxException {
         var response = vagasService.save(requestBody);
         var path = "/v1/api/vagas/" + response.id();
         return ResponseEntity.created(new URI(path)).body(response);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<VagaDto> update(@PathVariable long id, @Valid @RequestBody VagaDto requestBody) {
+    public ResponseEntity<VagaDTO> update(@PathVariable long id, @Valid @RequestBody VagaDTO requestBody) {
         return ResponseEntity.ok(vagasService.update(id, requestBody));
     }
 

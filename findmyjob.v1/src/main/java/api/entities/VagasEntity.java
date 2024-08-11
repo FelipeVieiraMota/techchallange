@@ -23,29 +23,22 @@ public class VagasEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long idVaga;
 
-    @NotBlank
-    @NotNull
-    @Column
+    @Column(nullable = false)
     private String titulo;
 
-    @NotBlank
-    @NotNull
-    @Column
+    @Column(nullable = false)
     private String descricao;
 
-    @Column(precision = 10, scale = 2)
-    @NotNull
+    @Column(precision = 10, scale = 2, nullable = false)
     private BigDecimal salario;
 
-    @NotNull
-    @Column(name = "data_publicacao")
+    @Column(name = "data_publicacao", nullable = false)
     private Date dataPublicacao;
 
-    @NotNull
-    @Column(name = "data_expiracao")
+    @Column(name = "data_expiracao", nullable = false)
     private Date dataExpiracao;
 
     @ManyToOne
-    @JoinColumn(name = "empresa_id")
+    @JoinColumn(name = "empresa_id", nullable = false)
     private EmpresaEntity empresa;
 }

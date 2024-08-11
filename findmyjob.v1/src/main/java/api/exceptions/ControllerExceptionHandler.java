@@ -15,8 +15,9 @@ import java.util.stream.Collectors;
 @RestControllerAdvice
 public class ControllerExceptionHandler {
 
-    public static final String ARGUMENTO_DE_MÉTODO_INVALIDO = "Argumento de Método Inválido";
+    public static final String ARGUMENTO_DE_METODO_INVALIDO = "Argumento de Método Inválido";
     public static final String VIOLACAO_DE_INTEGRIDADE_DE_DADOS = "Violação de Integridade de Dados";
+    public static final String REGISTRO_NAO_ENCONTRADO = "Registro não encontrado";
     private final MessageExceptions err = new MessageExceptions();
 
 
@@ -38,10 +39,22 @@ public class ControllerExceptionHandler {
         HttpStatus status = HttpStatus.BAD_REQUEST;
 
         err.setStatus(status.value());
-        err.setError(ARGUMENTO_DE_MÉTODO_INVALIDO);
+        err.setError(ARGUMENTO_DE_METODO_INVALIDO);
         err.setMessage(e.getBindingResult().getFieldErrors().stream()
                 .map(DefaultMessageSourceResolvable::getDefaultMessage)
                 .collect(Collectors.joining(", ")));
+
+        return ResponseEntity.status(status).body(this.err);
+    }
+
+    @ResponseStatus(HttpStatus.NOT_FOUND)
+    @ExceptionHandler(HttpNotFoundException.class)
+    public ResponseEntity<MessageExceptions> handleHttpNotFoundException(HttpNotFoundException e, HttpServletRequest request) {
+        HttpStatus status = HttpStatus.NOT_FOUND;
+
+        err.setStatus(status.value());
+        err.setError(REGISTRO_NAO_ENCONTRADO);
+        err.setMessage(e.getReason());
 
         return ResponseEntity.status(status).body(this.err);
     }
