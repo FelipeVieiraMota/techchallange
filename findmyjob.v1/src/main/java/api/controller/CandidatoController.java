@@ -1,7 +1,7 @@
 package api.controller;
 
 import api.dto.CandidatoDTO;
-import api.service.CandidatosService;
+import api.service.CandidatoService;
 import io.swagger.v3.oas.annotations.Operation;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -13,9 +13,9 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/v1/api/candidatos")
 @RequiredArgsConstructor
-public class CandidatosController {
+public class CandidatoController {
 
-    private final CandidatosService candidatosService;
+    private final CandidatoService candidatosService;
 
     @Operation(description = "Retorna o perfil do candidato cadastrado.")
     @GetMapping("/{id}")
