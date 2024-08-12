@@ -1,8 +1,8 @@
 package api.service;
 
 import api.dto.CandidaturaDTO;
-import api.entities.CandidaturasEntity;
-import api.mappers.CandidaturasMapper;
+import api.entities.CandidaturaEntity;
+import api.mappers.CandidaturaMapper;
 import api.repository.CandidaturaRepository;
 import api.exceptions.HttpNotFoundException;
 import lombok.RequiredArgsConstructor;
@@ -13,22 +13,22 @@ import org.springframework.stereotype.Service;
 public class CandidaturaService {
 
     private final CandidaturaRepository repository;
-    private final CandidaturasMapper mapper;
+    private final CandidaturaMapper mapper;
 
     public CandidaturaDTO obterDetalhesCandidatura(long id) {
-        CandidaturasEntity candidatura = repository.findById(id)
+        CandidaturaEntity candidatura = repository.findById(id)
                 .orElseThrow(() -> new HttpNotFoundException("Candidatura " + id + " não encontrada."));
         return mapper.toDto(candidatura);
     }
 
     public CandidaturaDTO salvarCandidatura(CandidaturaDTO candidaturaDTO) {
-        CandidaturasEntity candidatura = mapper.toEntity(candidaturaDTO);
-        CandidaturasEntity savedCandidatura = repository.save(candidatura);
+        CandidaturaEntity candidatura = mapper.toEntity(candidaturaDTO);
+        CandidaturaEntity savedCandidatura = repository.save(candidatura);
         return mapper.toDto(savedCandidatura);
     }
 
     public CandidaturaDTO atualizarCandidatura(long id, CandidaturaDTO candidaturaDTO) {
-        CandidaturasEntity candidaturaAtualizada = repository.findById(id)
+        CandidaturaEntity candidaturaAtualizada = repository.findById(id)
                 .orElseThrow(() -> new HttpNotFoundException("Candidatura " + id + " não encontrada."));
 
         candidaturaAtualizada.setCandidato(candidaturaDTO.candidato());
@@ -36,7 +36,7 @@ public class CandidaturaService {
         candidaturaAtualizada.setDataCandidatura(candidaturaDTO.dataCandidatura());
         candidaturaAtualizada.setStatus(candidaturaDTO.status());
 
-        CandidaturasEntity updatedCandidatura = repository.save(candidaturaAtualizada);
+        CandidaturaEntity updatedCandidatura = repository.save(candidaturaAtualizada);
         return mapper.toDto(updatedCandidatura);
     }
 

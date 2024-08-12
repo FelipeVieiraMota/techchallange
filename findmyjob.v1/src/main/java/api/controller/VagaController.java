@@ -6,7 +6,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import api.service.VagasService;
+import api.service.VagaService;
 
 
 import java.net.URI;
@@ -15,9 +15,9 @@ import java.net.URISyntaxException;
 @RestController
 @RequestMapping("/v1/api/vagas")
 @RequiredArgsConstructor
-public class VagasController {
+public class VagaController {
 
-    private final VagasService vagasService;
+    private final VagaService vagasService;
 
     @GetMapping
     public ResponseEntity<Page<VagaDTO>> getAllByPagination(

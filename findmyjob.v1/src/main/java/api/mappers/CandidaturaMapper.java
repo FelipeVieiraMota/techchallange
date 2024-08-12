@@ -1,13 +1,13 @@
 package api.mappers;
 
 import api.dto.CandidaturaDTO;
-import api.entities.CandidaturasEntity;
+import api.entities.CandidaturaEntity;
 import org.springframework.stereotype.Component;
 
 @Component
-public class CandidaturasMapper {
+public class CandidaturaMapper {
 
-    public CandidaturaDTO toDto(CandidaturasEntity candidaturasEntity){
+    public CandidaturaDTO toDto(CandidaturaEntity candidaturasEntity){
         return new CandidaturaDTO(
                 candidaturasEntity.getIdCandidatura(),
                 candidaturasEntity.getCandidato(),
@@ -17,8 +17,8 @@ public class CandidaturasMapper {
         );
     }
 
-    public CandidaturasEntity toEntity(CandidaturaDTO candidaturaDTO){
-        return new CandidaturasEntity(
+    public CandidaturaEntity toEntity(CandidaturaDTO candidaturaDTO){
+        return new CandidaturaEntity(
                 candidaturaDTO.idCandidatura(),
                 candidaturaDTO.candidato(),
                 candidaturaDTO.vaga(),

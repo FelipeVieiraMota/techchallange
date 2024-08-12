@@ -1,13 +1,13 @@
 package api.mappers;
 
 import api.dto.CandidatoDTO;
-import api.entities.CandidatosEntity;
+import api.entities.CandidatoEntity;
 import org.springframework.stereotype.Component;
 
 @Component
-public class CandidatosMapper {
+public class CandidatoMapper {
 
-    public CandidatoDTO toDto(CandidatosEntity candidatosEntity){
+    public CandidatoDTO toDto(CandidatoEntity candidatosEntity){
         return new CandidatoDTO(
                 candidatosEntity.getIdCandidato(),
                 candidatosEntity.getNome(),
@@ -20,8 +20,8 @@ public class CandidatosMapper {
         );
     }
 
-    public CandidatosEntity toEntity(CandidatoDTO candidatoDTO){
-        return new CandidatosEntity(
+    public CandidatoEntity toEntity(CandidatoDTO candidatoDTO){
+        return new CandidatoEntity(
                 candidatoDTO.idCandidato(),
                 candidatoDTO.nome(),
                 candidatoDTO.cpf(),

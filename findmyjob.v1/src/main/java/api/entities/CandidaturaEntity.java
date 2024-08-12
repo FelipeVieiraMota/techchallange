@@ -13,7 +13,7 @@ import java.util.Date;
 @Table(name = "candidaturas")
 @AllArgsConstructor
 @NoArgsConstructor
-public class CandidaturasEntity {
+public class CandidaturaEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,11 +22,11 @@ public class CandidaturasEntity {
 
     @ManyToOne
     @JoinColumn(name = "candidato_id", nullable = false)
-    private CandidatosEntity candidato;
+    private CandidatoEntity candidato;
 
     @ManyToOne
     @JoinColumn(name = "vaga_id", nullable = false)
-    private VagasEntity vaga;
+    private VagaEntity vaga;
 
     @Column(name = "data_candidatura", nullable = false)
     private Date dataCandidatura;

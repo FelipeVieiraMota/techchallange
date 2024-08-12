@@ -1,9 +1,9 @@
 package api.service;
 
 import api.dto.CandidatoDTO;
-import api.entities.CandidatosEntity;
+import api.entities.CandidatoEntity;
 import api.exceptions.HttpNotFoundException;
-import api.mappers.CandidatosMapper;
+import api.mappers.CandidatoMapper;
 import api.repository.CandidatoRepository;
 import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
@@ -11,10 +11,10 @@ import org.springframework.stereotype.Service;
 
 @Service
 @RequiredArgsConstructor
-public class CandidatosService {
+public class CandidatoService {
 
     private final CandidatoRepository repository;
-    private final CandidatosMapper mapper;
+    private final CandidatoMapper mapper;
 
 
     public CandidatoDTO obterPerfilCandidato(long id) {
@@ -31,7 +31,7 @@ public class CandidatosService {
 
     public CandidatoDTO atualizarPerfilCandidato(long id, CandidatoDTO candidato) {
         CandidatoDTO candidatoDTO;
-        CandidatosEntity candidatoAtualizado;
+        CandidatoEntity candidatoAtualizado;
 
         try{
             candidatoAtualizado = repository.getReferenceById(id);

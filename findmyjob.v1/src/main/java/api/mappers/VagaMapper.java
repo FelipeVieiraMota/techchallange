@@ -1,13 +1,13 @@
 package api.mappers;
 
 import api.dto.VagaDTO;
-import api.entities.VagasEntity;
+import api.entities.VagaEntity;
 import org.springframework.stereotype.Component;
 
 @Component
-public class VagasMapper extends GenericMapper {
+public class VagaMapper extends GenericMapper {
 
-    public VagaDTO toDto(VagasEntity vagasEntity) {
+    public VagaDTO toDto(VagaEntity vagasEntity) {
         return new VagaDTO(
             vagasEntity.getIdVaga(),
             vagasEntity.getTitulo(),
@@ -19,8 +19,8 @@ public class VagasMapper extends GenericMapper {
         );
     }
 
-    public VagasEntity toEntity(VagaDTO vagaDto) {
-        return new VagasEntity(
+    public VagaEntity toEntity(VagaDTO vagaDto) {
+        return new VagaEntity(
                 vagaDto.id(),
                 vagaDto.titulo(),
                 vagaDto.descricao(),

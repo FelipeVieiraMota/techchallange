@@ -1,7 +1,6 @@
 package api.entities;
 
 import jakarta.persistence.*;
-import jakarta.validation.constraints.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -17,7 +16,7 @@ import java.util.Date;
 @Table(name = "vagas")
 @AllArgsConstructor
 @NoArgsConstructor
-public class VagasEntity {
+public class VagaEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

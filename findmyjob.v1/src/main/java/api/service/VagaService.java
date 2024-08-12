@@ -1,8 +1,8 @@
 package api.service;
 
 import api.dto.VagaDTO;
-import api.entities.VagasEntity;
-import api.mappers.VagasMapper;
+import api.entities.VagaEntity;
+import api.mappers.VagaMapper;
 import api.repository.VagasRepository;
 import api.exceptions.HttpNotFoundException;
 import lombok.RequiredArgsConstructor;
@@ -12,10 +12,10 @@ import org.springframework.stereotype.Service;
 
 @Service
 @RequiredArgsConstructor
-public class VagasService {
+public class VagaService {
 
     private final VagasRepository vagasRepository;
-    private final VagasMapper mapper;
+    private final VagaMapper mapper;
 
     public Page<VagaDTO> getAllByPagination(int page, int size) {
         return vagasRepository
@@ -39,7 +39,7 @@ public class VagasService {
         var dataToUpdate = vagasRepository.findById(id)
                 .orElseThrow(()-> new HttpNotFoundException("Vaga " + id + " not found."));
 
-        dataToUpdate = mapper.map(mapper.toEntity(requestBody), dataToUpdate, VagasEntity.class);
+        dataToUpdate = mapper.map(mapper.toEntity(requestBody), dataToUpdate, VagaEntity.class);
 
         return save(mapper.toDto(dataToUpdate));
     }
