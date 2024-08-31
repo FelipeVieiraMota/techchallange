@@ -12,9 +12,9 @@ Consulte o link do Swagger para verficar a docuemntação da API.
 
 Execute esses comandos nessa sequencia dentro da pasta findmyjob.v1:
 
-Esses comandos irão gerar as imagens 
-docker build -t postgres -f ./src/main/resources/database/Dockerfile .
-docker build -t findmyjob -f ./src/main/resources/app/Dockerfile .
+- Comandos para geração das imagens: 
+    - docker build -t postgres -f ./src/main/resources/database/Dockerfile .
+    - docker build -t findmyjob -f ./src/main/resources/app/Dockerfile .
 
-Esse comando irá subir o projeto
-docker compose up
+- Comando para subir o projeto
+    - docker compose up
