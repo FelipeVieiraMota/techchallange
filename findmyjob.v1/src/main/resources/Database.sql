@@ -1,7 +1,15 @@
 
--- Postgres database
+-- Postgres database --
 
--- 1) Executar essas queries antes de subir a API
+-- Limpar a base de dados
+drop table  empresa;
+drop table  candidato;
+drop table  vagas;
+drop table  candidaturas;
+
+commit;
+
+-- Executar essas queries antes de subir a API
 CREATE TABLE empresas (
     id_empresa SERIAL PRIMARY key,
     razao_social VARCHAR(255) NOT NULL,
@@ -47,34 +55,43 @@ commit;
 ---------------------------------
 
 
+-- Todas as empresas que pagam acima de 8000 por vaga
+select 
+	e.id_empresa, 
+	e.razao_social as "Razão Social", 
+	v.titulo as "Vaga", 
+	v.salario as "Salario", 
+	TO_CHAR(v.data_publicacao, 'dd/MM/YYYY') as "Publicação",
+	TO_CHAR(v.data_expiracao, 'dd/MM/YYYY') as "Expiracão"
+from vagas v 
+	join empresa e on v.empresa_id = e.id_empresa
+where salario > 8000
+order by v.salario desc;
+------------------------------------------------------------------------
 
 
+select 
+	e.id_empresa as "Numero de identificação por empresa",
+	e.razao_social as "Razão Social da empresa",
+	v.id_vaga as "Numero de identificação por vaga",
+	v.titulo 
+from empresa e 
+	join vagas v on e.id_empresa = v.empresa_id
+group by e.id_empresa, v.id_vaga
+order by 
+	e.id_empresa desc,
+	v.id_vaga desc
 
+------------------------------------------------------------------------
 
--- Limpar a base de dados
-drop table  empresas;
-drop table  candidatos;
-drop table  vagas;
-drop table  candidaturas;
+select 
+	count(v.id_vaga) as "Quantidade de vagas em aberto por empresa", 
+	e.id_empresa as "Numero de identificação por empresa",
+	e.razao_social as "Razão Social da empresa"
+from empresa e 
+	join vagas v on e.id_empresa = v.empresa_id
+group by e.id_empresa
+order by 
+	count(e.id_empresa) desc, 
+	e.id_empresa desc
 
-commit;
-
-
-INSERT INTO empresas (razao_social, cnpj, endereco, telefone, email)
-VALUES ('Empresa Exemplo', '12.345.678/0001-99', 'Rua Exemplo, 123', '(11) 98765-4321', 'contato@empresaexemplo.com');
-
-INSERT INTO vagas (titulo, descricao, salario, data_publicacao, data_expiracao, empresa_id)
-VALUES ('Desenvolvedor Backend', 'Trabalhar com desenvolvimento de APIs', 5000.00, '2024-08-01', '2024-09-01', 1);
-
-INSERT INTO candidatos (nome, cpf, email, telefone, endereco, data_nascimento, experiencia)
-VALUES ('João Silva', '123.456.789-10', 'joao.silva@email.com', '(11) 91234-5678', 'Rua dos Desenvolvedores, 456', '1990-05-15', '3 anos de experiência em desenvolvimento web');
-
-INSERT INTO candidaturas (candidato_id, vaga_id, data_candidatura, status)
-VALUES (1, 1, '2024-08-01', 'Pendente');
-
-
-
-select * from  empresas;
-select * from  candidatos;
-select * from  vagas;
-select * from  candidaturas;
