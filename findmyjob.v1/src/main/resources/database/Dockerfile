@@ -1,9 +1,12 @@
+# To create a docker build from scratch, perform this command bellow:
+# docker build -t postgres -f ./src/main/resources/app/Dockerfile  .
+
 # Use the official PostgreSQL image from Docker Hub
 FROM postgres:latest
 
 # Set environment variables for PostgreSQL
 ENV POSTGRES_USER=postgres
-ENV POSTGRES_PASSWORD=test
+ENV POSTGRES_PASSWORD=postgres
 ENV POSTGRES_DB=postgres
 
 # Expose the PostgreSQL port
