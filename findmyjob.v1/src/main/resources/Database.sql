@@ -93,3 +93,5 @@ order by
 	count(e.id_empresa) desc, 
 	e.id_empresa desc
 
+select ROUND(AVG(v.salario),0) as "Media Salarial" from vagas v;
+select AVG(v.salario) as "Media Salarial" from vagas v;
